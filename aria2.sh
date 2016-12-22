@@ -41,14 +41,13 @@ fastcgi_param  SERVER_ADDR        $server_addr;
 fastcgi_param  SERVER_PORT        $server_port;
 fastcgi_param  SERVER_NAME        $server_name;
 ' >> fastcgi_params
-
 cd conf.d
-
 echo "
 server {
     listen 80;
     server_name ${pan};
     root /home/wwwroot/${pan};
+   
 
     location / {
         index index.html index.php _h5ai/public/index.php;
@@ -61,12 +60,9 @@ server {
     }
 }
 " >> ${pan}.conf
-
 cd 
 apt-get install aria2 screen -y
 mkdir .aria2
-
-
 rm -rf /root/.aria2/aria2.conf
 echo "
 
@@ -178,12 +174,10 @@ follow-torrent=mem
 " >> /root/.aria2/aria2.conf
 screen -dmS aria2  aria2c --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -c
 echo '' > /root/.aria2/aria2.session
-
 cd /home/wwwroot/${pan}/web
 wget --no-check-certificate https://dn-325.qbox.me/AriaNg.zip
 unzip AriaNg.zip -d /home/wwwroot/${pan}/web
 rm -f AriaNg.zip
-
 cd /home/wwwroot/${pan}/file
 chmod -R u+x /home/wwwroot/${pan}/file
 wget --no-check-certificate https://raw.githubusercontent.com/godzlalala/onlineplayer/master/_h5ai.zip
@@ -192,7 +186,6 @@ rm -f _h5ai.zip
 chmod 644 ./_h5ai
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
-
 cd /home/wwwroot/${pan}
 wget --no-check-certificate https://github.com/kalcaddle/KODExplorer/archive/3.34.zip
 unzip 3.34.zip
