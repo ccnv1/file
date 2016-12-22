@@ -56,7 +56,7 @@ server {
    
 
     location / {
-        index index.html index.php _h5ai/public/index.php;
+        index index.html index.php file/_h5ai/public/index.php;
     }
     location ~* \.php$ {
         fastcgi_pass unix:/var/run/php5-fpm.sock;
