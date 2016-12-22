@@ -176,7 +176,6 @@ bt-metadata-only=true
 #通过网上的种子文件下载，种子保存在内存
 follow-torrent=mem
 
-
 " >> /root/.aria2/aria2.conf
 screen -dmS aria2  aria2c --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -c
 echo '' > /root/.aria2/aria2.session
