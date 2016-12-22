@@ -196,7 +196,8 @@ cd /home/wwwroot/${pan}
 wget --no-check-certificate https://github.com/kalcaddle/KODExplorer/archive/3.34.zip
 unzip 3.34.zip
 mv KODExplorer-3.34 ke
-chmod -R 777 ./ke
+chmod -R 755 ./ke
+chmod -R 777 ./ke/data
 rm -f 3.34.zip
 service nginx restart
 service php5-fpm restart
