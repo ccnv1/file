@@ -23,7 +23,6 @@ apt-get install -y php5-gd
 apt-get install -y ffmpeg 
 apt-get install -y unzip
 mkdir -p /home/wwwroot/${pan}/web
-mkdir -p /home/wwwroot/${pan}/file
 cd /etc/nginx/
 rm -rf fastcgi_params
 echo '
@@ -57,7 +56,7 @@ server {
     root /home/wwwroot/${pan};
 
     location / {
-        index index.html index.php file/_h5ai/public/index.php;
+        index index.html index.php /_h5ai/public/index.php;
     }
     location ~* \.php$ {
         fastcgi_pass unix:/var/run/php5-fpm.sock;
@@ -81,7 +80,7 @@ echo "
 ## 文件保存相关 ##
 
 # 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
-dir=/home/wwwroot/${pan}/file/
+dir=/home/wwwroot/${pan}/
 # 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M
 #disk-cache=32M
 # 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc
@@ -187,18 +186,11 @@ wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download
 unzip aria-ng-0.1.0-b4.zip
 rm -f aria-ng-0.1.0-b4.zip
 cd /home/wwwroot/${pan}/file
-chmod 777 /home/wwwroot/${pan}/file
+chmod 777 /home/wwwroot/${pan}
 wget --no-check-certificate https://raw.githubusercontent.com/ccnv1/file/master/_h5ai.zip
 unzip _h5ai.zip
 rm -f _h5ai.zip
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
-cd /home/wwwroot/${pan}
-wget --no-check-certificate https://github.com/kalcaddle/KODExplorer/archive/3.34.zip
-unzip 3.34.zip
-mv KODExplorer-3.34 ke
-chmod 777 ./ke
-chmod -R 777 ./ke/data
-rm -f 3.34.zip
 service nginx restart
 service php5-fpm restart
