@@ -180,12 +180,13 @@ follow-torrent=mem
 " >> /root/.aria2/aria2.conf
 screen -dmS aria2  aria2c --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -c
 echo '' > /root/.aria2/aria2.session
+chmod 777 /root/.aria2/aria2.session
 cd /home/wwwroot/${pan}/web
-wget --no-check-certificate https://dn-325.qbox.me/AriaNg.zip
-unzip AriaNg.zip -d /home/wwwroot/${pan}/web
-rm -f AriaNg.zip
+wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/0.1.0-b4/aria-ng-0.1.0-b4.zip
+unzip aria-ng-0.1.0-b4.zip
+rm -f aria-ng-0.1.0-b4.zip
 cd /home/wwwroot/${pan}/file
-chmod -R u+x /home/wwwroot/${pan}/file
+chmod -R 777 /home/wwwroot/${pan}/file
 wget --no-check-certificate https://raw.githubusercontent.com/godzlalala/onlineplayer/master/_h5ai.zip
 unzip _h5ai.zip
 rm -f _h5ai.zip
@@ -196,7 +197,7 @@ cd /home/wwwroot/${pan}
 wget --no-check-certificate https://github.com/kalcaddle/KODExplorer/archive/3.34.zip
 unzip 3.34.zip
 mv KODExplorer-3.34 ke
-chmod -R 777 ./ke/data
+chmod -R 777 ./ke
 rm -f 3.34.zip
 service nginx restart
 service php5-fpm restart
