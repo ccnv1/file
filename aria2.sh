@@ -15,7 +15,13 @@ echo "deb ftp://ftp.deb-multimedia.org jessie main" >>/etc/apt/sources.list
 apt-get update -y
 apt-get install -y --force-yes deb-multimedia-keyring
 apt-get update -y
-apt-get install -y -t jessie nginx php5 php5-fpm php5-gd ffmpeg unzip
+apt-get install -y jessie 
+apt-get install -y nginx 
+apt-get install -y php5 
+apt-get install -y php5-fpm 
+apt-get install -y php5-gd 
+apt-get install -y ffmpeg 
+apt-get install -y unzip
 mkdir -p /home/wwwroot/${pan}/web
 mkdir -p /home/wwwroot/${pan}/file
 cd /etc/nginx/
