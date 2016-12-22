@@ -186,11 +186,10 @@ wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download
 unzip aria-ng-0.1.0-b4.zip
 rm -f aria-ng-0.1.0-b4.zip
 cd /home/wwwroot/${pan}/file
-chmod -R 777 /home/wwwroot/${pan}/file
+chmod 777 /home/wwwroot/${pan}/file
 wget --no-check-certificate https://raw.githubusercontent.com/godzlalala/onlineplayer/master/_h5ai.zip
 unzip _h5ai.zip
 rm -f _h5ai.zip
-chmod 644 ./_h5ai
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
 cd /home/wwwroot/${pan}
