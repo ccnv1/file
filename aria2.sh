@@ -11,7 +11,7 @@ echo '
 '
 read -p '请输入网盘下载地址（例如 pan.xxx.com）： ' pan;
 [ -z "$pan" ] && echo "你是猪吗，让你填域名 已经给你设置为www.baidu.com，自己改" && pan="www.baidu.com"
-echo "deb ftp://ftp.deb-multimedia.org jessie main" >>/etc/apt/sources.list
+echo "deb ftp://ftp.deb-multimedia.org jessie main non-free" >>/etc/apt/sources.list
 apt-get update -y
 apt-get install -y --force-yes deb-multimedia-keyring
 apt-get update -y
