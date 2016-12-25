@@ -5,8 +5,8 @@ echo '
 	*****        本脚本只在debian8 x64上通过测试           *****
 	*****                                                  *****
 	************************************************************
-                                            
-										
+            默认Aria2管理界面：你下面填写的域名/web                                               
+	    例如：pan.xxx.com/web										
 											-Powered by 小表弟
 '
 read -p '请输入网盘下载地址（例如 pan.xxx.com）： ' pan;
@@ -162,8 +162,8 @@ enable-peer-exchange=true
 # 每个种子限速, 对少种的PT很有用, 默认:50K
 #bt-request-peer-speed-limit=50K
 # 客户端伪装, PT需要
-peer-id-prefix=-TR2770-
-user-agent=Transmission/2.77
+peer-id-prefix=-UT341-
+user-agent=uTorrent/341(109279400)(30888)
 # 当种子的分享率达到这个数时, 自动停止做种, 0为一直做种, 默认:1.0
 seed-ratio=0.1
 # 强制保存会话, 即使任务已经完成, 默认:false
