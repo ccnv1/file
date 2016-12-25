@@ -198,10 +198,16 @@ chmod 777 ./_h5ai/private/cache
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto
+pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto redis
 # if mysql
 mysql < qiandao.sql
 # fi
 ./run.py
+cd
+echo "
+#! /bin/sh
+/home/wwwroot/qiandao/run.py
+" >> /etc/rc.d/qiandao.sh
+chmod +x /etc/rc.d/qiandao.sh
 service nginx restart
 service php5-fpm restart
