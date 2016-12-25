@@ -202,6 +202,7 @@ pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto red
 # if mysql
 mysql < qiandao.sql
 # fi
+./qiandao/config.py
 ./run.py
 cd
 echo "
