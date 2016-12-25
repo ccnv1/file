@@ -180,11 +180,11 @@ bt-save-metadata=false
 " >> /root/.aria2/aria2.conf
 screen -dmS aria2  aria2c --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -c
 echo '' > /root/.aria2/aria2.session
-
+# AriaNg （Aria2 管理界面）
 cd /home/wwwroot/${pan}/web
-wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/0.1.0-b4/aria-ng-0.1.0-b4.zip
-unzip aria-ng-0.1.0-b4.zip
-rm -f aria-ng-0.1.0-b4.zip
+wget --no-check-certificate https://raw.githubusercontent.com/mayswind/AriaNg/gh-pages/downloads/latest_daily_build.zip
+unzip latest_daily_build.zip
+rm -f latest_daily_build.zip
 cd /home/wwwroot/${pan}
 chmod 777 /home/wwwroot/${pan}
 wget --no-check-certificate https://raw.githubusercontent.com/ccnv1/file/master/_h5ai.zip
