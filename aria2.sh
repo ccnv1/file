@@ -204,9 +204,10 @@ pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto red
 mysql < qiandao.sql
 
 echo "
-
+#!/bin/sh
+#chkconfig:2345 80 90
+#description:auto_coreseek
 python /home/wwwroot/qiandao/run.py &
-
-" >> /etc/rc.local
+" >> /etc/init.d/qiandao
 python /home/wwwroot/qiandao/run.py &
 chmod +x /etc/rc.local
