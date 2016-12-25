@@ -202,7 +202,7 @@ git clone https://github.com/binux/qiandao.git
 cd qiandao
 pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto redis
 mysql < qiandao.sql
-
+cd
 echo "
 #!/bin/sh
 #chkconfig:2345 80 90
