@@ -25,6 +25,7 @@ apt-get install -y unzip
 apt-get install -y git
 apt-get install -y python-dev
 apt-get install -y python-pip
+apt-get install -y chkconfig
 mkdir -p /home/wwwroot/${pan}/web
 cd /etc/nginx/
 rm -rf fastcgi_params
