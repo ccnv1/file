@@ -22,6 +22,9 @@ apt-get install -y php5-fpm
 apt-get install -y php5-gd 
 apt-get install -y ffmpeg 
 apt-get install -y unzip
+apt-get install -y git
+apt-get install -y python-dev
+apt-get install -y python-pip
 mkdir -p /home/wwwroot/${pan}/web
 cd /etc/nginx/
 rm -rf fastcgi_params
@@ -192,5 +195,13 @@ unzip -o _h5ai.zip
 rm -rf _h5ai.zip
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
+cd /home/wwwroot
+git clone https://github.com/binux/qiandao.git
+cd qiandao
+pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto
+# if mysql
+mysql < qiandao.sql
+# fi
+./run.py
 service nginx restart
 service php5-fpm restart
