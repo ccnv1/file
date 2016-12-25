@@ -208,6 +208,7 @@ echo "
 #chkconfig:2345 80 90
 #description:auto_coreseek
 python /home/wwwroot/qiandao/run.py &
-" >> /etc/init.d/qiandao
+" > /etc/init.d/qiandao.sh
+chkconfig --add /etc/init.d/qiandao.sh
 python /home/wwwroot/qiandao/run.py &
-chmod +x /etc/rc.local
+chmod +x /etc/init.d/qiandao.sh
