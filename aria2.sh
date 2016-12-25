@@ -184,12 +184,12 @@ echo '' > /root/.aria2/aria2.session
 cd /home/wwwroot/${pan}/web
 wget --no-check-certificate https://raw.githubusercontent.com/mayswind/AriaNg/gh-pages/downloads/latest_daily_build.zip
 unzip -o latest_daily_build.zip
-rm -u latest_daily_build.zip
+rm -rf latest_daily_build.zip
 cd /home/wwwroot/${pan}
 chmod 777 /home/wwwroot/${pan}
 wget --no-check-certificate https://raw.githubusercontent.com/ccnv1/file/master/_h5ai.zip
 unzip -o _h5ai.zip
-rm -u _h5ai.zip
+rm -rf _h5ai.zip
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
 service nginx restart
