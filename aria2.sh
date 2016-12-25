@@ -195,17 +195,15 @@ unzip -o _h5ai.zip
 rm -rf _h5ai.zip
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
+service nginx restart
+service php5-fpm restart
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
 cd qiandao
 pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto redis
 mysql < qiandao.sql
-./run.py
-cd
+
 echo "
-#! /bin/sh
-/home/wwwroot/qiandao/run.py
-" >> /etc/rc.d/qiandao.sh
-chmod +x /etc/rc.d/qiandao.sh
-service nginx restart
-service php5-fpm restart
+python /home/wwwroot/qiandao/run.py &
+" >> /etc/rc.d/qianda
+python /home/wwwroot/qiandao/run.py &
