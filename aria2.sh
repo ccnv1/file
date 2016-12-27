@@ -20,10 +20,10 @@ apt-get install -y php5-fpm
 apt-get install -y php5-gd 
 apt-get install -y ffmpeg 
 apt-get install -y unzip
-echo "deb http://ftp.debian.org/debian sid main" >>/etc/apt/sources.list
-apt-get update -y
 apt-get install -y git
-apt-get install -y python-dev
+apt-get -y install build-essential
+apt-get install -y autoconf
+apt-get install -y python2.7-dev
 apt-get install -y python-pip
 mkdir -p /home/wwwroot/${pan}/web
 cd /etc/nginx/
@@ -70,7 +70,9 @@ server {
 }
 " >> ${pan}.conf
 
-cd 
+cd
+echo "deb http://ftp.debian.org/debian sid main" >>/etc/apt/sources.list
+apt-get update -y
 apt-get install aria2 screen -y
 sed -i '/debian sid main/d' /etc/apt/sources.list
 mkdir .aria2
