@@ -13,18 +13,8 @@ read -p '请输入网盘下载地址（例如 pan.xxx.com）： ' pan;
 [ -z "$pan" ] && echo "你是猪吗，让你填域名 已经给你设置为www.baidu.com，自己改" && pan="www.baidu.com"
 apt-get update -y
 apt-get install -y --force-yes deb-multimedia-keyring
-apt-get install -y -t jessie
-apt-get install -y nginx
-apt-get install -y php5
-apt-get install -y php5-fpm
-apt-get install -y php5-gd
-apt-get install -y ffmpeg
-apt-get install -y unzip
-apt-get install -y git
-apt-get -y install build-essential
-apt-get install -y autoconf
-apt-get install -y python2.7-dev
-apt-get install -y python-pip
+apt-get install -y -t jessie nginx php5 php5-fpm php5-gd ffmpeg unzip
+apt-get install -y git build-essential autoconf python2.7-dev python-pip
 mkdir -p /home/wwwroot/${pan}/web
 cd /etc/nginx/
 rm -rf fastcgi_params
