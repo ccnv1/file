@@ -200,7 +200,8 @@ service php5-fpm restart
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto redis
+pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.5.zip#md5=244CC2942EC814C074ABB8165ECB841D
+pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto
 mysql < qiandao.sql
 cd
 echo "
