@@ -211,4 +211,4 @@ python /home/wwwroot/qiandao/run.py &
 " > /etc/init.d/qiandao.sh
 chmod +x /etc/init.d/qiandao.sh
 update-rc.d qiandao.sh defaults 99
-bash /etc/init.d/qiandao.sh
+bash /etc/init.d/qiandao.sh &
