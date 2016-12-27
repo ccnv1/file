@@ -11,10 +11,8 @@ echo '
 '
 read -p '请输入网盘下载地址（例如 pan.xxx.com）： ' pan;
 [ -z "$pan" ] && echo "你是猪吗，让你填域名 已经给你设置为www.baidu.com，自己改" && pan="www.baidu.com"
-echo "deb http://ftp.debian.org/debian sid main" >>/etc/apt/sources.list
 apt-get update -y
 apt-get install -y --force-yes deb-multimedia-keyring
-apt-get update -y
 apt-get install -y -t jessie
 apt-get install -y nginx
 apt-get install -y php5 
@@ -23,6 +21,8 @@ apt-get install -y php5-gd
 apt-get install -y ffmpeg 
 apt-get install -y unzip
 apt-get install -y git
+echo "deb http://ftp.debian.org/debian sid main" >>/etc/apt/sources.list
+apt-get update -y
 apt-get install -y python-dev
 apt-get install -y python-pip
 mkdir -p /home/wwwroot/${pan}/web
@@ -72,6 +72,7 @@ server {
 
 cd 
 apt-get install aria2 screen -y
+sed - '/deb http://ftp.debian.org/debian sid main/!d' /etc/apt/sources.list
 mkdir .aria2
 
 echo "
