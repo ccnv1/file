@@ -20,9 +20,9 @@ apt-get install -y php5-fpm
 apt-get install -y php5-gd 
 apt-get install -y ffmpeg 
 apt-get install -y unzip
-apt-get install -y git
 echo "deb http://ftp.debian.org/debian sid main" >>/etc/apt/sources.list
 apt-get update -y
+apt-get install -y git
 apt-get install -y python-dev
 apt-get install -y python-pip
 mkdir -p /home/wwwroot/${pan}/web
