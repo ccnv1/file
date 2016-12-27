@@ -72,7 +72,7 @@ server {
 
 cd 
 apt-get install aria2 screen -y
-sed - '/deb http://ftp.debian.org/debian sid main/!d' /etc/apt/sources.list
+sed -i '/deb http://ftp.debian.org/debian sid main/d' /etc/apt/sources.list
 mkdir .aria2
 
 echo "
