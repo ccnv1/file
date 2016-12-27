@@ -15,10 +15,10 @@ apt-get update -y
 apt-get install -y --force-yes deb-multimedia-keyring
 apt-get install -y -t jessie
 apt-get install -y nginx
-apt-get install -y php5 
-apt-get install -y php5-fpm 
-apt-get install -y php5-gd 
-apt-get install -y ffmpeg 
+apt-get install -y php5
+apt-get install -y php5-fpm
+apt-get install -y php5-gd
+apt-get install -y ffmpeg
 apt-get install -y unzip
 apt-get install -y git
 apt-get -y install build-essential
