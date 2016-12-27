@@ -181,13 +181,23 @@ bt-save-metadata=false
 
 
 " >> /root/.aria2/aria2.conf
-screen -dmS aria2  aria2c --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -c
+screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
 echo '' > /root/.aria2/aria2.session
+echo "
+#!/bin/sh
+#chkconfig:2345 80 90
+#description:auto_coreseek
+screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
+" > /etc/init.d/aria2.sh
+chmod +x /etc/init.d/aria2.sh
+update-rc.d aria2.sh defaults 98
+
 # AriaNg （Aria2 管理界面）
 cd /home/wwwroot/${pan}/web
 wget --no-check-certificate https://raw.githubusercontent.com/mayswind/AriaNg/gh-pages/downloads/latest_daily_build.zip
 unzip -o latest_daily_build.zip
 rm -rf latest_daily_build.zip
+
 cd /home/wwwroot/${pan}
 chmod 777 /home/wwwroot/${pan}
 wget --no-check-certificate https://raw.githubusercontent.com/ccnv1/file/master/_h5ai.zip
@@ -197,6 +207,7 @@ chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
 service nginx restart
 service php5-fpm restart
+
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
 cd qiandao
