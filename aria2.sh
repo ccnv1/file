@@ -206,6 +206,7 @@ git clone https://github.com/binux/qiandao.git
 cd qiandao
 apt-get install -y git autoconf python2.7-dev python-pip libmysqlclient-dev
 pip install pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
+ln -s /usr/local/mysql/bin/mysql_config /usr/local/bin/mysql_config
 pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto mysql-python
 mysql < qiandao.sql
 cd
