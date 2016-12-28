@@ -14,7 +14,7 @@ read -p '请输入网盘下载地址（例如 pan.xxx.com）： ' pan;
 apt-get update -y
 apt-get install -y --force-yes deb-multimedia-keyring
 apt-get install -y -t jessie nginx php5 php5-fpm php5-gd ffmpeg unzip
-apt-get install -y git build-essential autoconf python2.7-dev python-pip
+apt-get install -y build-essential
 mkdir -p /home/wwwroot/${pan}/web
 cd /etc/nginx/
 rm -rf fastcgi_params
@@ -204,8 +204,9 @@ service php5-fpm restart
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
 cd qiandao
+apt-get install -y git autoconf python2.7-dev python-pip libmysqlclient-dev
 pip install pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
-pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto
+pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto mysql-python
 mysql < qiandao.sql
 cd
 echo "
