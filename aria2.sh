@@ -208,7 +208,7 @@ cd
 #开机自启签到
 echo "
 python /home/wwwroot/qiandao/run.py &
-" >> /etc/rc.loca
+" >> /etc/rc.local
 #启动签到
 python /home/wwwroot/qiandao/run.py &
 #启动PHP/nginx
