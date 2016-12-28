@@ -69,7 +69,6 @@ mkdir .aria2
 
 echo "
 
-
 ## '#'开头为注释内容, 选项都有相应的注释说明, 根据需要修改 ##
 ## 被注释的选项填写的是默认值, 建议在需要修改时再取消注释  ##
 
@@ -172,14 +171,11 @@ bt-seed-unverified=true
 # 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
 bt-save-metadata=false
 
-
 " >> /root/.aria2/aria2.conf
 screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
 echo '' > /root/.aria2/aria2.session
 #开机自启aria2
-echo "
-screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D
-" >> /etc/rc.local
+echo "screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D" >> /etc/rc.local
 #启动aria2
 screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D
 # AriaNg （Aria2 管理界面）
@@ -197,18 +193,16 @@ chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
 
 cd /home/wwwroot
+apt-get install -y git autoconf python2.7-dev python-pip libmysqlclient-dev
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-apt-get install -y git autoconf python2.7-dev python-pip libmysqlclient-dev
 pip install pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
 ln -s /usr/local/mysql/bin/mysql_config /usr/local/bin/mysql_config
 pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto mysql-python
 mysql < qiandao.sql
 cd
 #开机自启签到
-echo "
-python /home/wwwroot/qiandao/run.py &
-" >> /etc/rc.local
+echo "python /home/wwwroot/qiandao/run.py &" >> /etc/rc.local
 #启动签到
 python /home/wwwroot/qiandao/run.py &
 #启动PHP/nginx
