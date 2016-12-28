@@ -193,13 +193,10 @@ chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
 
 cd /home/wwwroot
-apt-get install -y git autoconf python2.7-dev python-pip libmysqlclient-dev
+apt-get install -y git autoconf python2.7-dev python-pip
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
-ln -s /usr/local/mysql/bin/mysql_config /usr/local/bin/mysql_config
-pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto mysql-python
-mysql < qiandao.sql
+pip install tornado u-msgpack-python jinja2 chard
 cd
 #开机自启签到
 echo "python /home/wwwroot/qiandao/run.py &" >> /etc/rc.local
