@@ -196,7 +196,27 @@ cd /home/wwwroot
 apt-get install -y git autoconf python2.7-dev python-pip
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install tornado u-msgpack-python jinja2 chard
+pip install tornado u-msgpack-python jinja2 chardcd /etc/nginx/conf.d
+echo "
+upstream p8923 {
+    server 127.0.0.1:8923;
+}
+
+server {
+    listen         80;
+    listen         [::]:80;
+    server_name    ${pan}/qd;
+
+    location / {
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_pass http://p8923;
+    }
+}
+" >> ${pan}qd.conf
 cd
 #开机自启签到
 echo "python /home/wwwroot/qiandao/run.py &" >> /etc/rc.local
