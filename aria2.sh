@@ -172,8 +172,8 @@ bt-seed-unverified=true
 bt-save-metadata=false
 
 " >> /root/.aria2/aria2.conf
-screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
 echo '' > /root/.aria2/aria2.session
+screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
 #开机自启aria2
 echo "screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D" >> /etc/rc.local
 #启动aria2
