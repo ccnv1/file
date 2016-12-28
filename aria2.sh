@@ -176,15 +176,12 @@ bt-save-metadata=false
 " >> /root/.aria2/aria2.conf
 screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
 echo '' > /root/.aria2/aria2.session
+#开机自启aria2
 echo "
-#!/bin/sh
-#chkconfig:2345 80 90
-#description:auto_coreseek
-screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
-" > /etc/init.d/aria2.sh
-chmod +x /etc/init.d/aria2.sh
-update-rc.d aria2.sh defaults 98
-
+screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D
+" >> /etc/rc.local
+#启动aria2
+screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D
 # AriaNg （Aria2 管理界面）
 cd /home/wwwroot/${pan}/web
 wget --no-check-certificate https://raw.githubusercontent.com/mayswind/AriaNg/gh-pages/downloads/latest_daily_build.zip
@@ -198,8 +195,6 @@ unzip -o _h5ai.zip
 rm -rf _h5ai.zip
 chmod 777 ./_h5ai/public/cache
 chmod 777 ./_h5ai/private/cache
-service nginx restart
-service php5-fpm restart
 
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
@@ -210,12 +205,12 @@ ln -s /usr/local/mysql/bin/mysql_config /usr/local/bin/mysql_config
 pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto mysql-python
 mysql < qiandao.sql
 cd
+#开机自启签到
 echo "
-#!/bin/sh
-#chkconfig:2345 80 90
-#description:auto_coreseek
 python /home/wwwroot/qiandao/run.py &
-" > /etc/init.d/qiandao.sh
-chmod +x /etc/init.d/qiandao.sh
-update-rc.d qiandao.sh defaults 99
-sh /etc/init.d/qiandao.sh
+" >> /etc/rc.loca
+#启动签到
+python /home/wwwroot/qiandao/run.py &
+#启动PHP/nginx
+service nginx restart
+service php5-fpm restart
