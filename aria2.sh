@@ -204,7 +204,7 @@ service php5-fpm restart
 cd /home/wwwroot
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.5.zip
+pip install pip install http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
 pip install tornado u-msgpack-python jinja2 chardet requests mysql-connector-python redis pbkdf2 pycrypto
 mysql < qiandao.sql
 cd
