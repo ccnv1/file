@@ -198,9 +198,9 @@ cd qiandao
 pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto
 cd
 #开机自启签到
-echo "screen -dmS qiandao python /home/wwwroot/qiandao/run.py &" >> /etc/rc.local
+echo "screen -dmS qiandao /home/wwwroot/qiandao/run.py" >> /etc/rc.local
 #启动签到
-screen -dmS qiandao python /home/wwwroot/qiandao/run.py &
+screen -dmS qiandao /home/wwwroot/qiandao/run.py
 #启动PHP/nginx
 service nginx restart
 service php5-fpm restart
