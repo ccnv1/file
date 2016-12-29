@@ -174,7 +174,10 @@ bt-save-metadata=false
 " >> /root/.aria2/aria2.conf
 echo '' > /root/.aria2/aria2.session
 #开机自启aria2
-echo "screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D" >> /etc/rc.local
+sed -i '/exit 0/d' /etc/rc.local
+echo "screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D
+exit 0" >> /etc/rc.local
+chmod +x /etc/rc.local
 #启动aria2
 screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D
 # AriaNg （Aria2 管理界面）
@@ -198,7 +201,10 @@ cd qiandao
 pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto
 cd
 #开机自启签到
-echo "screen -dmS qiandao /home/wwwroot/qiandao/run.py" >> /etc/rc.local
+sed -i '/exit 0/d' /etc/rc.local
+echo "screen -dmS qiandao /home/wwwroot/qiandao/run.py
+exit 0" >> /etc/rc.local
+chmod +x /etc/rc.local
 #启动签到
 screen -dmS qiandao /home/wwwroot/qiandao/run.py
 #启动PHP/nginx
