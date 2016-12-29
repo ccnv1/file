@@ -196,24 +196,6 @@ apt-get install -y git autoconf python2.7-dev python-pip
 git clone https://github.com/binux/qiandao.git
 cd qiandao
 pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto
-echo "
-upstream p8923 {
-    server 127.0.0.1:8923;
-}
-server {
-    listen         80;
-    listen         [::]:80;
-    server_name    qd.${pan};
-    location / {
-        proxy_pass_header Server;
-        proxy_set_header Host $http_host;
-        proxy_redirect off;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Scheme $scheme;
-        proxy_pass http://p8923;
-    }
-}
-" >> qd.${pan}.conf
 cd
 #开机自启签到
 echo "python /home/wwwroot/qiandao/run.py &" >> /etc/rc.local
