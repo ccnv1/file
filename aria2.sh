@@ -199,8 +199,8 @@ cd qiandao
 pip install tornado u-msgpack-python jinja2 chard
 cd /etc/nginx/conf.d
 echo "
-upstream p8200 {
-    server 127.0.0.1:8200;
+upstream p8923 {
+    server 127.0.0.1:8923;
 }
 server {
     listen         80;
@@ -212,7 +212,7 @@ server {
         proxy_redirect off;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Scheme $scheme;
-        proxy_pass http://p8200;
+        proxy_pass http://p8923;
     }
 }
 " >> qd.${pan}.conf
