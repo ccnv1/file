@@ -173,7 +173,6 @@ bt-save-metadata=false
 
 " >> /root/.aria2/aria2.conf
 echo '' > /root/.aria2/aria2.session
-screen -dmS aria2  aria2c --conf-path=/root/.aria2/aria2.conf -D
 #开机自启aria2
 echo "screen -dmS aria2 aria2c --conf-path=/root/.aria2/aria2.conf -D" >> /etc/rc.local
 #启动aria2
@@ -196,7 +195,7 @@ cd /home/wwwroot
 apt-get install -y git autoconf python2.7-dev python-pip
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install tornado u-msgpack-python jinja2 chard
+pip install tornado u-msgpack-python jinja2 chard 
 cd /etc/nginx/conf.d
 echo "
 upstream p8923 {
