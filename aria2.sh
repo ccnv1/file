@@ -195,8 +195,7 @@ cd /home/wwwroot
 apt-get install -y git autoconf python2.7-dev python-pip
 git clone https://github.com/binux/qiandao.git
 cd qiandao
-pip install tornado u-msgpack-python jinja2 chard 
-cd /etc/nginx/conf.d
+pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto
 echo "
 upstream p8923 {
     server 127.0.0.1:8923;
